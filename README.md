@@ -1,8 +1,9 @@
-# pytorch-DCGAN
+# pytorch-ConditionalGAN
 ## Description
 ConditionalGANのpytorch実装
 
 ### Conditional GAN
+[papaer link](https://arxiv.org/abs/1411.1784)
 - ラベルも入力とし学習を行う
   - ラベルを指定することで任意の画像を精製することができる
 
