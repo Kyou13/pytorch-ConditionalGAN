@@ -7,6 +7,14 @@ ConditionalGANのpytorch実装
 - ラベルも入力とし学習を行う
   - ラベルを指定することで任意の画像を精製することができる
 
+## Example
+### loss
+![loss](https://github.com/Kyou13/pytorch-ConditionalGAN/blob/master/samples/mnist/loss.png)
+### Genarated Image
+- epochs: 30
+  - batch size: 64
+![genaratedImage](https://github.com/Kyou13/pytorch-ConditionalGAN/blob/master/samples/mnist/fake_images_190717024550.png)
+
 ## Requirement
 - Python 3.7
 - pytorch 1.1.0
