@@ -13,6 +13,7 @@ ConditionalGANのpytorch実装
 ### Genarated Image
 - epochs: 30
   - batch size: 64
+
 ![genaratedImage](https://github.com/Kyou13/pytorch-ConditionalGAN/blob/master/samples/mnist/fake_images_190717024550.png)
 
 ## Requirement
