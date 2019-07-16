@@ -19,18 +19,18 @@ class Discriminator(nn.Module):
     x = self.dropout(self.leakyReLU(self.linear1(x)))
     x = self.dropout(self.leakyReLU(self.linear2(x)))
     x = self.dropout(self.leakyReLU(self.linear3(x)))
-    x = torch.sigmoid(x)
-    return x
+    x = torch.sigmoid(self.linear4(x))
+    return torch.squeeze(x)
 
 
 class Generator(nn.Module):
   def __init__(self, nz, ngf, image_size, labels):
     super(Generator, self).__init__()
     self.label_emb = nn.Embedding(10, 10)
-    self.linear1 = nn.Linear(nz + labels, ndf)
-    self.linear2 = nn.Linear(ndf, ndf * 2)
-    self.linear3 = nn.Linear(ndf * 2, ndf * 4)
-    self.linear4 = nn.Linear(ndf * 4, image_size + labels)
+    self.linear1 = nn.Linear(nz + labels, ngf)
+    self.linear2 = nn.Linear(ngf, ngf * 2)
+    self.linear3 = nn.Linear(ngf * 2, ngf * 4)
+    self.linear4 = nn.Linear(ngf * 4, image_size)
     self.leakyReLU = nn.LeakyReLU(0.2, inplace=True)
 
   def forward(self, x, labels):
@@ -39,5 +39,5 @@ class Generator(nn.Module):
     x = self.leakyReLU(self.linear1(x))
     x = self.leakyReLU(self.linear2(x))
     x = self.leakyReLU(self.linear3(x))
-    x = torch.tanh(x)
+    x = torch.tanh(self.linear4(x))
     return x
